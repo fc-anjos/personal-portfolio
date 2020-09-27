@@ -1,0 +1,10 @@
+$background-color: #1b1b1e;
+$primary: #db4747;
+
+@import url('https://fonts.googleapis.com/css?family=Playfair|Poppins');
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  background-color: $background-color;
+  color: white;
+}
