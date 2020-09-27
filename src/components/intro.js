@@ -1,5 +1,7 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import styles from '../styles/intro.module.scss';
+import YAMLData from '../../content/My-YAML-Content.yaml';
 
 export default function Intro() {
   return (
@@ -15,10 +17,7 @@ export default function Intro() {
           </div>
           <div className="hidden-intro">
             <p className="intro-text mt-3">
-              I am a full-stack developer with experience supporting projects from inception to deployment.
-              Skilled in Ruby on Rails, JavaScript, UNIX, Python, Data Visualization and Database Management, leveraging those skills to solve problems and gain insight into a variety of contexts,
-              combining professional activity with academic interests.
-
+              {YAMLData.hello_p}
             </p>
             <p className="divided">
               <span className="text-primary font-weight-bold">See more</span>
