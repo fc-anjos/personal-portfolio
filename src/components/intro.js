@@ -5,7 +5,7 @@ export default function Intro() {
   return (
     <div className="intro">
       <div className="col-2" />
-      <div className={`col-5 ${styles.first-screen}}`>
+      <div className={`col-5 ${styles.firstScreen}`}>
         <div className={styles.presentation}>
           <span className={styles.hello}>Hello, I'm</span>
           <h1 className={styles.name}>Felipe dos Anjos</h1>
