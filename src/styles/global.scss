@@ -1,6 +1,4 @@
-$background-color: #1b1b1e;
-$primary: #db4747;
-
+@import "./variables.scss";
 @import url('https://fonts.googleapis.com/css?family=Playfair|Poppins');
 @import "~bootstrap/scss/bootstrap";
 // @import "~react-typist/dist/Typist.css";
@@ -10,3 +8,7 @@ body {
   color: white;
 }
 
+button:focus {
+    border: none;
+    outline: none;
+}
