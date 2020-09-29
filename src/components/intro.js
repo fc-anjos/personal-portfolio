@@ -1,24 +1,50 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React, { Component } from 'react';
+import Typist from 'react-typist';
 import styles from '../styles/intro.module.scss';
 import YAMLData from '../../content/My-YAML-Content.yaml';
 
-export default function Intro() {
-  return (
-    <div className="intro">
-      <div className="col-2" />
+export default class Intro extends Component {
+  state = {
+    showMyComponent: false,
+  }
+
+  show = () => {
+    this.setState({
+      showMyComponent: true,
+    });
+  }
+
+  render() {
+    return (
       <div className={`col-5 ${styles.firstScreen}`}>
         <div className={styles.presentation}>
           <span className={styles.hello}>Hello, I'm</span>
-          <h1 className={styles.name}>Felipe dos Anjos</h1>
+          <h1>
+            <Typist
+              cursor={{
+                blink: true,
+                hideWhenDone: true,
+              }}
+              onTypingDone={this.show}
+            >
+              <span className={styles.name}>Felipe</span>
+              <br />
+              <span className={styles.name}>dos Anjos</span>
+            </Typist>
+          </h1>
           <div className="name">
-            <span id="typedName" />
-            <div id="circle" className="hidden-intro" />
+            <div
+              id={styles.circle}
+              style={this.state.showMyComponent ? { display: 'block' } : { display: 'none' }}
+            />
           </div>
-          <div className="hidden-intro">
-            <p className="intro-text mt-3">
-              {YAMLData.hello_p}
-            </p>
+          <div
+            className={styles.introP}
+            style={this.state.showMyComponent ? { display: 'block' } : { display: 'none' }}
+          >
+            <p
+              dangerouslySetInnerHTML={{ __html: YAMLData.hello_p }}
+            />
             <p className="divided">
               <span className="text-primary font-weight-bold">See more</span>
               <span className="center-line" />
@@ -30,6 +56,6 @@ export default function Intro() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
