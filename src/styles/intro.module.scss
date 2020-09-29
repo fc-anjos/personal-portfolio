@@ -1,10 +1,24 @@
 @import "./variables.scss";
+
+$lg: map-get($grid-breakpoints, lg);
+
 h1 {
   font-size: 5rem;
   font-family: 'Playfair Display';
   display: inline;
   padding: 0;
-  line-height: 4.8rem;
+  line-height: 4.6rem;
+  margin: 0 0 0.1em 0;
+  white-space: nowrap;
+  position: relative;
+  top: 0.1em;
+}
+
+@media only screen and (max-width: $lg) {
+  h1 {
+    font-size: 3.8rem;
+    line-height: 3.6rem;
+  }
 }
 
 .firstScreen {
@@ -19,10 +33,6 @@ h1 {
   top: 30vh;
 }
 
-.hello {
-  position: relative;
-  top: 0.3em;
-}
 
 .introP {
   position: relative;
@@ -33,12 +43,32 @@ h1 {
 #circle {
   position: absolute;
   border-radius: 50%;
-  background-color: $primary;
+  background: radial-gradient(circle,
+   $primary 0%,
+   $primary-darker 100%);
   animation-delay: 0.2s;
   animation-duration: 0.7s;
   animation-name: circle_appear;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
+}
+
+.divided {
+  display: flex;
+  justify-content: space-between;
+}
+
+.centerLine {
+  flex-grow: 1;
+  border: 0.2px solid rgba(255, 255, 255, 0.02);
+  height: 0px;
+  margin: 0 20px 0 20px;
+  position: relative;
+  top: 0.7em;
+}
+
+.links > * {
+  margin: 0px 5px 0px 5px;
 }
 
 @keyframes circle_appear {
@@ -54,4 +84,32 @@ h1 {
     height: 100px;
     display: block;
   }
+}
+
+.icon {
+  color: white;
+  font-size: 0.9em;
+}
+
+.seeMore {
+  font-size: 0.8em;
+  color: $primary;
+  font-weight: bold;
+}
+
+.hello {
+  position: absolute;
+  top: -5.5em;
+  left: -4.8em;
+  display: inline;
+}
+
+.hello::before {
+  content: "01.";
+  color: $muted;
+  font-size: 5em;
+  position: relative;
+  font-weight: 100;
+  font-family: Poppins;
+  left: -0.25em;
 }

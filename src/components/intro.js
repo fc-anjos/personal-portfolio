@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Fade } from 'react-awesome-reveal';
 import Typist from 'react-typist';
+import {
+  faGithub,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from '../styles/intro.module.scss';
 import YAMLData from '../../content/My-YAML-Content.yaml';
 
@@ -20,12 +25,16 @@ function Links(props) {
           <p
             dangerouslySetInnerHTML={{ __html: YAMLData.hello_p }}
           />
-          <p className="divided">
-            <span className="text-primary font-weight-bold">See more</span>
-            <span className="center-line" />
-            <span className="links d-inline">
-              <i className="intro-link fab fa-github m-1" />
-              <i className="intro-link fab fa-linkedin m-1" />
+          <p className={styles.divided}>
+            <span className={styles.seeMore}>See more</span>
+            <span className={styles.centerLine} />
+            <span className={styles.links}>
+              <a href="https://github.com/fc-anjos/" target="_blank">
+                <FontAwesomeIcon icon={faGithub} className={styles.icon} />
+              </a>
+              <a href="https://www.linkedin.com/in/fc-anjos/" target="_blank">
+                <FontAwesomeIcon icon={faLinkedin} className={styles.icon} />
+              </a>
             </span>
           </p>
         </div>
@@ -60,9 +69,10 @@ export default class Intro extends Component {
         <div className={styles.presentation}>
           <Typist
             cursor={{
-              blink: true,
-              hideWhenDone: true,
-              hideWhenDoneDelay: 300,
+              show: false,
+              // blink: true,
+              // hideWhenDone: true,
+              // hideWhenDoneDelay: 300,
             }}
             onTypingDone={this.showName}
             avgTypingDelay={60}
