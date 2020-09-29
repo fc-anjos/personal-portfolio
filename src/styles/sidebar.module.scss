@@ -1,0 +1,30 @@
+.sidebar {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  height: 50vh;
+  position: absolute;
+  right: 10px;
+  top: 25vh;
+  width: 80px;
+}
+
+.sidebar li {
+  list-style-type: none;
+  color: white;
+  display: inline-block;
+  margin: 20px;
+}
+
+.sidebar li a {
+  display: block;
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+

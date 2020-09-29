@@ -11,17 +11,15 @@ function Links(props) {
         id={styles.circle}
         style={props.show ? { display: 'block' } : { display: 'none' }}
       />
-      <div
-        className={styles.introP}
-        style={props.show ? { display: 'block' } : { display: 'none' }}
-      >
+      <Fade delay={4300} duration={300}>
+        <div
+          className={styles.introP}
+          style={props.show ? { display: 'block' } : { display: 'none' }}
+        >
 
-        <Fade duration={10}>
           <p
             dangerouslySetInnerHTML={{ __html: YAMLData.hello_p }}
           />
-        </Fade>
-        <Fade delay={100} duration={0}>
           <p className="divided">
             <span className="text-primary font-weight-bold">See more</span>
             <span className="center-line" />
@@ -30,21 +28,30 @@ function Links(props) {
               <i className="intro-link fab fa-linkedin m-1" />
             </span>
           </p>
-        </Fade>
-      </div>
+        </div>
+      </Fade>
     </div>
   );
 }
 
 export default class Intro extends Component {
   state = {
-    showMyComponent: false,
+    show_name: false,
+    show_p: false,
   }
 
-  show = () => {
+  showName = () => {
     this.setState({
-      showMyComponent: true,
+      show_name: true,
     });
+  }
+
+  showP = () => {
+    setTimeout(() => {
+      this.setState({
+        show_p: true,
+      });
+    }, 200);
   }
 
   render() {
@@ -57,14 +64,14 @@ export default class Intro extends Component {
               hideWhenDone: true,
               hideWhenDoneDelay: 300,
             }}
-            onTypingDone={this.show}
+            onTypingDone={this.showName}
             avgTypingDelay={60}
             startDelay={250}
           >
             <span className={styles.hello}>Hello, I'm</span>
           </Typist>
           <h1
-            style={this.state.showMyComponent ? { display: 'block' } : { display: 'none' }}
+            style={this.state.show_name ? { display: 'block' } : { display: 'none' }}
           >
             <Typist
               cursor={{
@@ -73,20 +80,14 @@ export default class Intro extends Component {
               }}
               avgTypingDelay={140}
               startDelay={1000}
+              onTypingDone={this.showP}
             >
               <span className={styles.name}>Felipe</span>
               <br />
               <span className={styles.name}>dos Anjos</span>
             </Typist>
           </h1>
-
-          <Fade
-            delay={2800}
-            duration={0}
-            style={this.state.showMyComponent ? { display: 'block' } : { display: 'none' }}
-          >
-            <Links show={this.state.showMyComponent} />
-          </Fade>
+          <Links show={this.state.show_p} />
         </div>
       </div>
     );
