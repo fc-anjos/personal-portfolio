@@ -80,7 +80,11 @@ export default class Intro extends Component {
             </Typist>
           </h1>
 
-          <Fade delay={3200} duration={0}>
+          <Fade
+            delay={2800}
+            duration={0}
+            style={this.state.showMyComponent ? { display: 'block' } : { display: 'none' }}
+          >
             <Links show={this.state.showMyComponent} />
           </Fade>
         </div>
