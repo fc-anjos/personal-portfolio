@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Helmet from 'react-helmet';
 import styles from '../styles/index.module.scss';
 import Intro from '../components/intro.js';
@@ -16,9 +16,7 @@ export default function Home() {
         <title>Felipe's Portfolio</title>
       </Helmet>
       <Container className={`position-relative ${styles.verticalGrid}`}>
-        <Row>
-          <Intro />
-        </Row>
+        <Intro />
         <Sidebar />
         <Portfolio />
       </Container>
