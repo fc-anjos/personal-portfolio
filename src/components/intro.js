@@ -6,6 +6,7 @@ import {
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Row, Col } from 'react-bootstrap';
 import styles from '../styles/intro.module.scss';
 import YAMLData from '../../content/My-YAML-Content.yaml';
 
@@ -65,41 +66,42 @@ export default class Intro extends Component {
 
   render() {
     return (
-      <div className={`col-5 ${styles.firstScreen}`}>
-        <div className={styles.presentation}>
-          <Typist
-            cursor={{
-              show: false,
-              // blink: true,
-              // hideWhenDone: true,
-              // hideWhenDoneDelay: 300,
-            }}
-            onTypingDone={this.showName}
-            avgTypingDelay={60}
-            startDelay={250}
-          >
-            <span className={styles.hello}>Hello, I'm</span>
-          </Typist>
-          <h1
-            style={this.state.show_name ? { display: 'block' } : { display: 'none' }}
-          >
+      <Row>
+        <Col xs="2" />
+        <div className={`col-5 ${styles.firstScreen}`}>
+          <div className={styles.presentation}>
             <Typist
               cursor={{
-                blink: true,
-                hideWhenDone: true,
+                show: false,
               }}
-              avgTypingDelay={140}
-              startDelay={1000}
-              onTypingDone={this.showP}
+              onTypingDone={this.showName}
+              avgTypingDelay={60}
+              startDelay={250}
             >
-              <span className={styles.name}>Felipe</span>
-              <br />
-              <span className={styles.name}>dos Anjos</span>
+              <span className={`subTitle ${styles.hello}`}>Hello, I'm</span>
             </Typist>
-          </h1>
-          <Links show={this.state.show_p} />
+            <h1
+              style={this.state.show_name ? { display: 'block' } : { display: 'none' }}
+              className="sectionTitle"
+            >
+              <Typist
+                cursor={{
+                  blink: true,
+                  hideWhenDone: true,
+                }}
+                avgTypingDelay={140}
+                startDelay={1000}
+                onTypingDone={this.showP}
+              >
+                <span className={styles.name}>Felipe</span>
+                <br />
+                <span className={styles.name}>dos Anjos</span>
+              </Typist>
+            </h1>
+            <Links show={this.state.show_p} />
+          </div>
         </div>
-      </div>
+      </Row>
     );
   }
 }

@@ -52,25 +52,34 @@ class Entry extends Component {
 
 export default function Portfolio() {
   return (
-    <Accordion>
-      <Entry
-        eventKey="0"
-        p
-        projectName="SwipEx"
-        projectDescription="SwipEx"
-      />
+    <section className={styles.sectionContainer}>
+      <span className="subTitle">
+        Some recent work
+      </span>
+      <h1 className={`sectionTitle ${styles.sectionTitle}`}>
+        Portfolio
+      </h1>
+      <span className={styles.sectionIndex}>02.</span>
+      <Accordion className={styles.accordion}>
+        <Entry
+          eventKey="0"
+          p
+          projectName="SwipEx"
+          projectDescription="SwipEx"
+        />
 
-      <Entry
-        eventKey="1"
-        projectName="BusBot"
-        projectDescription="BusBot"
-      />
+        <Entry
+          eventKey="1"
+          projectName="BusBot"
+          projectDescription="BusBot"
+        />
 
-      <Entry
-        eventKey="2"
-        projectDescription="Stay in Touch"
-        projectName="Stay in Touch"
-      />
-    </Accordion>
+        <Entry
+          eventKey="2"
+          projectDescription="Stay in Touch"
+          projectName="Stay in Touch"
+        />
+      </Accordion>
+    </section>
   );
 }
