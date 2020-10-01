@@ -22,8 +22,25 @@ button:focus {
   top: 0.1em;
 }
 
-.subTitle{
+.subTitle {
+  position: relative;
+  top: 0.4em;
   display: block;
   font-style: italic;
   color: $light;
+}
+
+.sectionIndex {
+  color: $muted;
+  font-size: 5em;
+  font-family: Poppins;
+}
+
+.sectionIndexContainer {
+  position: relative;
+  left: -8.8rem;
+  top: 3.3rem;
+  text-align: right;
+  width: 120px;
+  font-weight: 200;
 }

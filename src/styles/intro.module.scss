@@ -85,20 +85,3 @@ $lg: map-get($grid-breakpoints, lg);
   color: $primary;
   font-weight: bold;
 }
-
-.hello {
-  position: absolute;
-  top: -5.5em;
-  left: -4.8em;
-  display: inline;
-}
-
-.hello::before {
-  content: "01.";
-  color: $muted;
-  font-size: 5em;
-  position: relative;
-  font-weight: 100;
-  font-family: Poppins;
-  left: -0.25em;
-}

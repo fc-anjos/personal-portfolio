@@ -70,6 +70,10 @@ export default class Intro extends Component {
         <Col xs="2" />
         <div className={`col-5 ${styles.firstScreen}`}>
           <div className={styles.presentation}>
+            <div className="sectionIndexContainer">
+              <span className="sectionIndex">01</span>
+            </div>
+
             <Typist
               cursor={{
                 show: false,
@@ -78,7 +82,7 @@ export default class Intro extends Component {
               avgTypingDelay={60}
               startDelay={250}
             >
-              <span className={`subTitle ${styles.hello}`}>Hello, I'm</span>
+              <span className="subTitle">Hello, I'm</span>
             </Typist>
             <h1
               style={this.state.show_name ? { display: 'block' } : { display: 'none' }}

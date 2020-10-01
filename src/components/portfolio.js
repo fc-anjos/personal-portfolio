@@ -53,15 +53,17 @@ class Entry extends Component {
 function SectionTitle(props) {
   return (
     <>
+      <div className="sectionIndexContainer">
+        <span className="sectionIndex">
+          {props.number}
+        </span>
+      </div>
       <span className="subTitle">
         {props.subtitle}
       </span>
-      <h1 className={`sectionTitle ${styles.sectionTitle}`}>
+      <h1 className="sectionTitle">
         {props.title}
       </h1>
-      <span className={styles.sectionIndex}>
-        {props.number}
-      </span>
     </>
   );
 }
@@ -72,7 +74,7 @@ export default function Portfolio() {
       <SectionTitle
         subtitle="Some recent work"
         title="Portfolio"
-        number="02."
+        number="02"
       />
       <Accordion className={styles.accordion}>
         <Entry

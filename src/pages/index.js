@@ -16,8 +16,8 @@ export default function Home() {
         <title>Felipe's Portfolio</title>
       </Helmet>
       <Container className={`position-relative ${styles.verticalGrid}`}>
-        <Intro />
         <Sidebar />
+        <Intro />
         <Portfolio />
       </Container>
     </>
