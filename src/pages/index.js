@@ -10,11 +10,11 @@ import favicon from '../images/favicon.ico';
 export default function Home() {
   return (
     <>
-      {/* <Helmet> */}
-        {/* <link rel="icon" href={favicon} /> */}
-        {/* <meta charSet="utf-8" /> */}
-        {/* <title>Felipe's Portfolio</title> */}
-      {/* </Helmet> */}
+      <Helmet>
+        <link rel="icon" href={favicon} />
+        <meta charSet="utf-8" />
+        <title>Felipe's Portfolio</title>
+      </Helmet>
       <Container className={`position-relative ${styles.verticalGrid}`}>
         <Sidebar />
         <Intro />
