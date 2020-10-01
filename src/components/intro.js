@@ -17,7 +17,7 @@ function Links(props) {
         id={styles.circle}
         style={props.show ? { display: 'block' } : { display: 'none' }}
       />
-      <Fade delay={4300} duration={300}>
+      <Fade delay={4300} duration={300} triggerOnce>
         <div
           className={styles.introP}
           style={props.show ? { display: 'block' } : { display: 'none' }}
@@ -86,7 +86,7 @@ export default class Intro extends Component {
             </Typist>
             <h1
               style={this.state.show_name ? { display: 'block' } : { display: 'none' }}
-              className="sectionTitle"
+              className={styles.sectionTitle}
             >
               <Typist
                 cursor={{
