@@ -7,7 +7,7 @@ export default function Sidebar() {
   return (
     <Row className={styles.row}>
 
-      <Col xs="11" clssName={styles.col} />
+      <Col xs="11" className={styles.col} />
       <Col xs="1" className={styles.wrapper}>
         <ul className={`${styles.sidebar}`}>
           <Fade delay={4800} duration={300} cascade damping={0.5} triggerOnce>

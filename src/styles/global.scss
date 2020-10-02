@@ -19,7 +19,6 @@ button:focus {
   line-height: 4.6rem;
   white-space: nowrap;
   position: relative;
-  top: 0.1em;
 }
 
 .subTitle {
@@ -43,4 +42,8 @@ button:focus {
   text-align: right;
   width: 120px;
   font-weight: 200;
+}
+
+.d-block {
+  display: block;
 }

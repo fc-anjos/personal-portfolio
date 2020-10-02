@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Accordion, Card, Button, Row, Container, Col,
+  Accordion, Card, Row, Container, Col,
 } from 'react-bootstrap';
 import {
   faPlus,
@@ -9,22 +9,29 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from '../styles/portfolio.module.scss';
 
-const plus = <FontAwesomeIcon icon={faPlus} className={styles.icon} />;
+const plus = (
+  <>
+    <FontAwesomeIcon icon={faPlus} className={styles.icon} />
+  </>
+);
 const minus = <FontAwesomeIcon icon={faMinus} className={styles.icon} />;
 
 function SectionTitle(props) {
+  const {
+    number, subtitle, title,
+  } = props;
   return (
     <>
       <div className="sectionIndexContainer">
         <span className="sectionIndex">
-          {props.number}
+          {number}
         </span>
       </div>
       <span className="subTitle">
-        {props.subtitle}
+        {subtitle}
       </span>
       <h1 className="sectionTitle">
-        {props.title}
+        {title}
       </h1>
     </>
   );
@@ -39,67 +46,103 @@ class Entry extends Component {
     };
   }
 
-  toggle= () => {
+  toggle = () => {
+    const {
+      open,
+    } = this.state;
+
     this.setState({
-      open: this.state.open === plus ? minus : plus,
+      open: open === plus ? minus : plus,
     });
   }
 
   render() {
+    const {
+      imgLink, projectDescription, eventKey, projectTitle, projectSubTitle,
+    } = this.props;
+    const { open } = this.state;
     return (
-      <Card className={styles.card}>
-        <Card.Header className={styles.cardHeader}>
-          <Accordion.Toggle
-            className={styles.button}
-            onClick={this.toggle}
-            eventKey={this.props.eventKey}
-          >
-            {this.props.projectName}
-            <div className={styles.linkingLine} />
-            <span className={styles.showSign}>
-              {this.state.open}
-            </span>
-          </Accordion.Toggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey={this.props.eventKey}>
-          <Card.Body>
-            <Container>
-              <Row>
-                <Col xs="8">
-                  <img src={this.props.imgLink} className="img-responsive w-100" alt="" />
-                </Col>
-                <Col xs="4">
-                  {this.props.projectDescription}
-                </Col>
-              </Row>
-            </Container>
-          </Card.Body>
-        </Accordion.Collapse>
-      </Card>
+      <div className={styles.card}>
+        <EntryHeader
+          toggle={this.toggle}
+          eventKey={eventKey}
+          projectTitle={projectTitle}
+          projectSubTitle={projectSubTitle}
+          open={open}
+        />
+        <EntryBody
+          eventKey={eventKey}
+          imgLink={imgLink}
+          projectDescription={projectDescription}
+        />
+      </div>
     );
   }
 }
+
+const EntryBody = props => {
+  const {
+    imgLink, projectDescription, eventKey,
+  } = props;
+  return (
+    <Accordion.Collapse eventKey={eventKey}>
+      <div className={styles.entryBody}>
+        <div className={styles.imgContainer}>
+          <img src={imgLink} className={styles.portfolioImage} alt="" />
+        </div>
+        <div className={styles.projectDescription}>
+          {projectDescription}
+        </div>
+      </div>
+    </Accordion.Collapse>
+  );
+};
+
+const EntryHeader = props => {
+  const {
+    toggle, projectTitle, open, eventKey, projectSubTitle,
+  } = props;
+  return (
+    <div className={styles.cardHeader} onClick={toggle}>
+      <Accordion.Toggle className={styles.button} eventKey={eventKey}>
+        <div className={styles.titleContainer}>
+          <p className={styles.projectTitle}>
+            {projectTitle}
+          </p>
+          <div className={styles.linkingLine} />
+          <span className={styles.showSign}>
+            {open}
+          </span>
+        </div>
+        <div className={styles.projectSubTitle}>
+          {projectSubTitle}
+        </div>
+      </Accordion.Toggle>
+    </div>
+  );
+};
 
 export default function Portfolio() {
   return (
     <section className={styles.sectionContainer}>
       <SectionTitle
         subtitle="Some recent work"
-        title="Portfolio"
+        title="Projects"
         number="02"
       />
       <Accordion className={styles.accordion}>
         <Entry
           eventKey="0"
           p
-          projectName="SwipEx"
+          projectTitle="SwipEx"
+          projectSubTitle="An application to blabla"
           projectDescription="SwipEx is the capstone project form Microverse's HTML-CSS module. Bootstrap with custom breakpoints is used extensively, re-arranging the content with its responsible break-points and changing margins and paddings accordingly. The project styling is done through SASS, organized in modularized units. "
           imgLink="https://raw.githubusercontent.com/fc-anjos/capstone-project-html-css/master/screenshot.PNG"
         />
 
         <Entry
           eventKey="1"
-          projectName="BusBot"
+          projectTitle="BusBot"
           projectDescription="This Telegram bot connects to SPTrans API to estimate the arrival times for a given Bus Line at an specific Bus Stop in the city of São Paulo."
           imgLink="https://raw.githubusercontent.com/fc-anjos/telegram-bus-bot/development/screenshot.gif"
         />
@@ -107,7 +150,7 @@ export default function Portfolio() {
         <Entry
           eventKey="2"
           projectDescription="Stay in Touch"
-          projectName="Stay in Touch"
+          projectTitle="Stay in Touch"
         />
       </Accordion>
     </section>
