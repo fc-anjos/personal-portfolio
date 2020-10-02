@@ -80,7 +80,6 @@ export default class Intro extends Component {
               }}
               onTypingDone={this.showName}
               avgTypingDelay={60}
-              startDelay={250}
             >
               <span className="subTitle">Hello, I'm</span>
             </Typist>
