@@ -5,6 +5,7 @@ import styles from '../styles/index.module.scss';
 import Intro from '../components/intro.js';
 import Sidebar from '../components/sidebar.js';
 import Portfolio from '../components/portfolio.js';
+import About from '../components/about.js';
 import favicon from '../images/favicon.ico';
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         <Sidebar />
         <Intro />
         <Portfolio />
+        <About />
       </Container>
     </>
   );

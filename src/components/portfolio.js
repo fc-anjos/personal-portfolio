@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import {
-  Accordion, Card, Row, Container, Col,
-} from 'react-bootstrap';
+import { Accordion } from 'react-bootstrap';
 import {
   faPlus,
   faMinus,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Fade } from 'react-awesome-reveal';
 import styles from '../styles/portfolio.module.scss';
 
 const plus = (
@@ -21,7 +20,7 @@ function SectionTitle(props) {
     number, subtitle, title,
   } = props;
   return (
-    <>
+    <div className="sectionOpener">
       <div className="sectionIndexContainer">
         <span className="sectionIndex">
           {number}
@@ -33,7 +32,7 @@ function SectionTitle(props) {
       <h1 className="sectionTitle">
         {title}
       </h1>
-    </>
+    </div>
   );
 }
 
@@ -125,33 +124,38 @@ const EntryHeader = props => {
 export default function Portfolio() {
   return (
     <section className={styles.sectionContainer}>
-      <SectionTitle
-        subtitle="Some recent work"
-        title="Projects"
-        number="02"
-      />
+      <Fade duration={200} fraction={1} triggerOnce>
+        <SectionTitle
+          subtitle="Some recent..."
+          title="Projects"
+          number="02"
+        />
+      </Fade>
       <Accordion className={styles.accordion}>
-        <Entry
-          eventKey="0"
-          p
-          projectTitle="SwipEx"
-          projectSubTitle="An application to blabla"
-          projectDescription="SwipEx is the capstone project form Microverse's HTML-CSS module. Bootstrap with custom breakpoints is used extensively, re-arranging the content with its responsible break-points and changing margins and paddings accordingly. The project styling is done through SASS, organized in modularized units. "
-          imgLink="https://raw.githubusercontent.com/fc-anjos/capstone-project-html-css/master/screenshot.PNG"
-        />
+        <Fade cascade duration={200} cascade damping={0.5} fraction={0.4} triggerOnce>
+          <Entry
+            eventKey="0"
+            p
+            projectTitle="SwipEx"
+            projectSubTitle="An application to blabla"
+            projectDescription="SwipEx is the capstone project form Microverse's HTML-CSS module. Bootstrap with custom breakpoints is used extensively, re-arranging the content with its responsible break-points and changing margins and paddings accordingly. The project styling is done through SASS, organized in modularized units. "
+            imgLink="https://raw.githubusercontent.com/fc-anjos/capstone-project-html-css/master/screenshot.PNG"
+          />
 
-        <Entry
-          eventKey="1"
-          projectTitle="BusBot"
-          projectDescription="This Telegram bot connects to SPTrans API to estimate the arrival times for a given Bus Line at an specific Bus Stop in the city of São Paulo."
-          imgLink="https://raw.githubusercontent.com/fc-anjos/telegram-bus-bot/development/screenshot.gif"
-        />
+          <Entry
+            eventKey="1"
+            projectTitle="BusBot"
+            projectDescription="This Telegram bot connects to SPTrans API to estimate the arrival times for a given Bus Line at an specific Bus Stop in the city of São Paulo."
+            imgLink="https://raw.githubusercontent.com/fc-anjos/telegram-bus-bot/development/screenshot.gif"
+          />
 
-        <Entry
-          eventKey="2"
-          projectDescription="Stay in Touch"
-          projectTitle="Stay in Touch"
-        />
+          <Entry
+            eventKey="2"
+            projectDescription="Stay in Touch"
+            projectTitle="Stay in Touch"
+          />
+
+        </Fade>
       </Accordion>
     </section>
   );

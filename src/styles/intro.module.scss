@@ -19,7 +19,7 @@ $lg: map-get($grid-breakpoints, lg);
 
 .firstScreen {
   display: flex;
-  height: 100vh;
+  height: calc(100vh + 50px);
   min-height: 600px;
   flex-direction: column;
   font-family: 'Poppins';

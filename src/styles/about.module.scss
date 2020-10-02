@@ -1,0 +1,68 @@
+@import "./variables.scss";
+
+$card-margin-size: 1em;
+$container-padding: 20vh;
+$card-height: calc(((100vh - 2*#{$container-padding}) / 2) - #{$card-margin-size} * 2);
+
+.aboutSection {
+  height: 100vh;
+  padding-top: $container-padding;
+  padding-bottom: $container-padding;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardsWrapper {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardsWrapper > * {
+  padding: 20px;
+}
+.skillCard {
+  height: $card-height;
+  flex: 0 0 calc(50% - #{2*$card-margin-size});
+  margin: $card-margin-size;
+  background-color: $background-light;
+}
+
+.aboutRight {
+  flex: 0 0 calc(50% - #{2*$card-margin-size});
+  margin: $card-margin-size;
+  display: flex;
+  flex-direction: column;
+}
+
+$margin-aboutRight: 0.2em;
+.sectionIndex {
+  color: $muted;
+  font-size: 5rem;
+  line-height: 4.4rem;
+  font-family: Poppins;
+  font-weight: 200;
+  margin-top: $margin-aboutRight;
+}
+
+.subTitle {
+  position: relative;
+  display: block;
+  font-style: italic;
+  color: $light;
+  margin-bottom: 0.4em;
+}
+
+.aboutP {
+  flex-grow: 1;
+  font-size: 1.1rem;
+}
+
+.resumeLink {
+  font-size: 1.2rem;
+  margin-bottom: $margin-aboutRight;
+}
+
+.icon {
+  margin-left: 1rem;
+}

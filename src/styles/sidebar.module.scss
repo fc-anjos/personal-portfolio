@@ -12,6 +12,9 @@
   padding: 0;
   display: flex;
   justify-content: flex-end;
+  position: relative;
+  // TODO: ADJUST HERE ON MEDIA QUERY
+  left: 20px;
 }
 
 .sidebar {
