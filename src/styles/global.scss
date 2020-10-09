@@ -3,6 +3,8 @@
 @import "~bootstrap/scss/bootstrap";
 // @import "~react-typist/dist/Typist.css";
 
+$sm: map-get($grid-breakpoints, sm);
+
 body {
   background-color: $background-color;
   color: white;
@@ -42,6 +44,16 @@ button:focus {
   top: -4rem;
   text-align: right;
   width: 120px;
+}
+
+@media only screen and (max-width: $sm) {
+  .sectionIndexContainer {
+    position: absolute;
+    left: -3.4rem;
+    top: -6rem;
+    text-align: right;
+    width: 120px;
+  }
 }
 
 .sectionOpener {

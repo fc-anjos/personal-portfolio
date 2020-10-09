@@ -66,9 +66,9 @@ export default class Intro extends Component {
 
   render() {
     return (
-      <Row>
-        <Col xs="2" />
-        <div className={`col-5 ${styles.firstScreen}`}>
+      <Row id="hello">
+        <Col xs="1" sm="2" />
+        <div className={`col-10 col-sm-6 col-lg-5 ${styles.firstScreen}`}>
           <div className={styles.presentation}>
             <div className="sectionIndexContainer">
               <span className="sectionIndex">01</span>

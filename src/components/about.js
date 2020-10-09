@@ -54,7 +54,7 @@ const AboutText = props => (
 export default function About() {
   return (
     <Fade fraction={0.4} triggerOnce>
-      <section className={styles.aboutSection}>
+      <section className={styles.aboutSection} id="about">
         <div className={styles.cardsWrapper}>
           <SkillCard
             title="Languages"

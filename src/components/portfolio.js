@@ -123,7 +123,7 @@ const EntryHeader = props => {
 
 export default function Portfolio() {
   return (
-    <section className={styles.sectionContainer}>
+    <section className={styles.sectionContainer} id="portfolio">
       <Fade duration={200} fraction={1} triggerOnce>
         <SectionTitle
           subtitle="Some recent..."
