@@ -13,7 +13,7 @@ export default function Sidebar() {
           <Fade delay={4800} duration={300} cascade damping={0.5} triggerOnce>
             <li><a href="#">Hello</a></li>
             <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
           </Fade>
         </ul>

@@ -1,6 +1,6 @@
 @import "./variables.scss";
 
-$card-margin-size: 1em;
+$card-margin-size: 1.5em;
 $container-padding: 20vh;
 $card-height: calc(((100vh - 2*#{$container-padding}) / 2) - #{$card-margin-size} * 2);
 
@@ -10,6 +10,7 @@ $card-height: calc(((100vh - 2*#{$container-padding}) / 2) - #{$card-margin-size
   padding-bottom: $container-padding;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .cardsWrapper {
@@ -18,14 +19,67 @@ $card-height: calc(((100vh - 2*#{$container-padding}) / 2) - #{$card-margin-size
   flex-wrap: wrap;
 }
 
-.cardsWrapper > * {
-  padding: 20px;
-}
 .skillCard {
-  height: $card-height;
+  padding: 20px;
+  min-height: $card-height;
+  // width: 50%;
   flex: 0 0 calc(50% - #{2*$card-margin-size});
   margin: $card-margin-size;
   background-color: $background-light;
+
+  h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  ul {
+    color: $light;
+  }
+
+  ul li:before {
+    content:"·";
+    font-size:3em;
+    vertical-align:middle;
+    line-height:20px;
+    margin-right: 4px;
+  }
+
+
+  $icon-box-shadow-radius: 10px;
+  $icon-background-opacity: 0.2;
+  .cardIcon {
+    margin-left: calc(#{$icon-box-shadow-radius} / 2);
+    font-size: 1rem;
+    margin-bottom: 1em;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .cardIconGreen {
+    box-shadow: 0 0 0 $icon-box-shadow-radius rgba($green, $icon-background-opacity);
+    background-color: rgba($green, $icon-background-opacity);
+    color: $green;
+  }
+
+  .cardIconBlue {
+    box-shadow: 0 0 0 $icon-box-shadow-radius rgba($blue, $icon-background-opacity);
+    background-color: rgba($blue, $icon-background-opacity);
+    color: $blue;
+  }
+
+  .cardIconYellow {
+    box-shadow: 0 0 0 $icon-box-shadow-radius rgba($yellow, $icon-background-opacity);
+    background-color: rgba($yellow, $icon-background-opacity);
+    color: $yellow;
+  }
+
+  .cardIconRed {
+    box-shadow: 0 0 0 $icon-box-shadow-radius rgba($red, $icon-background-opacity);
+    background-color: rgba($red, $icon-background-opacity);
+    color: $red;
+  }
 }
 
 .aboutRight {
@@ -56,6 +110,11 @@ $margin-aboutRight: 0.2em;
 .aboutP {
   flex-grow: 1;
   font-size: 1.1rem;
+  margin-right: 4em;
+
+  p {
+    margin-bottom: 0.3rem;
+  }
 }
 
 .resumeLink {
@@ -66,3 +125,11 @@ $margin-aboutRight: 0.2em;
 .icon {
   margin-left: 1rem;
 }
+
+.cardsFade {
+  position: absolute;
+  display: flex;
+  width: 5px;
+  background-color: red;
+}
+

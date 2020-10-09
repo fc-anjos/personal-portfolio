@@ -1,12 +1,31 @@
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
+import {
+  faFileDownload, faCube, faHashtag, faLightbulb, faHeart,
+} from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/about.module.scss';
 
-const SkillCard = props => (
-  <div className={styles.skillCard} />
-);
+function SkillCard(props) {
+  const listItems = props.ul_items.map(item => (
+    <li>
+      {item}
+    </li>
+  ));
+
+  return (
+    <div className={styles.skillCard}>
+      <FontAwesomeIcon
+        icon={props.icon}
+        className={`${styles.cardIcon} ${props.iconColorClass}`}
+      />
+      <h2>{props.title}</h2>
+      <ul className="list-unstyled">
+        {listItems}
+      </ul>
+    </div>
+  );
+}
 
 const AboutText = props => (
   <div className={styles.aboutRight}>
@@ -15,9 +34,16 @@ const AboutText = props => (
       A litter more...
     </span>
     <h1 className="sectionTitle">About Me</h1>
-    <p className={styles.aboutP}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+    <div className={styles.aboutP}>
+      <p>
+        Pursuing a transdisciplinary education, I think about skills as
+        <i> tools to build projects with </i>
+        , instead of just taking them at their face value.
+      </p>
+      <p>
+        My interests are multiple but never scattered: this stance supports learning how to learn and aids at dealing with challenges creatively.
+      </p>
+    </div>
     <a className={styles.resumeLink} href="">
       Download my Resume
       <FontAwesomeIcon icon={faFileDownload} className={styles.icon} />
@@ -27,14 +53,36 @@ const AboutText = props => (
 
 export default function About() {
   return (
-    <section className={styles.aboutSection}>
-      <div className={styles.cardsWrapper}>
-        <SkillCard />
-        <SkillCard />
-        <SkillCard />
-        <SkillCard />
-      </div>
-      <AboutText />
-    </section>
+    <Fade fraction={0.4} triggerOnce>
+      <section className={styles.aboutSection}>
+        <div className={styles.cardsWrapper}>
+          <SkillCard
+            title="Languages"
+            ul_items={['Python', 'Ruby', 'JavaScript', 'HTML/CSS', 'SQL']}
+            icon={faHashtag}
+            iconColorClass={styles.cardIconGreen}
+          />
+          <SkillCard
+            title="Frameworks"
+            ul_items={['React', 'Ruby on Rails', 'Bootstrap', 'RSpec', 'PostGIS']}
+            icon={faCube}
+            iconColorClass={styles.cardIconBlue}
+          />
+          <SkillCard
+            title="Skills"
+            ul_items={['UNIX', 'Git', 'Heroku', 'AWS']}
+            icon={faLightbulb}
+            iconColorClass={styles.cardIconYellow}
+          />
+          <SkillCard
+            title="Education"
+            ul_items={['Architecture', 'Philosophy', 'Software Development']}
+            icon={faHeart}
+            iconColorClass={styles.cardIconRed}
+          />
+        </div>
+        <AboutText />
+      </section>
+    </Fade>
   );
 }
