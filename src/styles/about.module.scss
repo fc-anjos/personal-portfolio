@@ -3,6 +3,7 @@
 $card-margin-size: 1.5em;
 $container-padding: 20vh;
 $card-height: calc(((100vh - 2*#{$container-padding}) / 2) - #{$card-margin-size} * 2);
+$lg: map-get($grid-breakpoints, lg);
 
 .aboutSection {
   height: 100vh;
@@ -13,8 +14,10 @@ $card-height: calc(((100vh - 2*#{$container-padding}) / 2) - #{$card-margin-size
   position: relative;
 }
 
+
+
 .cardsWrapper {
-  width: 50%;
+  flex: 0 0 calc(50% - #{2*$card-margin-size});
   display: flex;
   flex-wrap: wrap;
 }
@@ -22,7 +25,6 @@ $card-height: calc(((100vh - 2*#{$container-padding}) / 2) - #{$card-margin-size
 .skillCard {
   padding: 20px;
   min-height: $card-height;
-  // width: 50%;
   flex: 0 0 calc(50% - #{2*$card-margin-size});
   margin: $card-margin-size;
   background-color: $background-light;
@@ -133,3 +135,20 @@ $margin-aboutRight: 0.2em;
   background-color: red;
 }
 
+
+@media only screen and (max-width: $lg) {
+  .aboutSection {
+    flex-flow: row wrap-reverse;
+    position: relative;
+    top: 75vh;
+  }
+
+  .cardsWrapper {
+    flex: 0 0 100%;
+  }
+
+  .aboutRight {
+    flex: 0 0 100%;
+  }
+
+}
