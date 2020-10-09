@@ -30,7 +30,7 @@ function Links(props) {
             <span className={styles.seeMore}>See more</span>
             <span className={styles.centerLine} />
             <span className={styles.links}>
-              <a href="https://github.com/fc-anjos/" target="_blank">
+              <a href="https://github.com/fc-anjos/" target="_blank" rel="noreferrer">
                 <FontAwesomeIcon icon={faGithub} className={styles.icon} />
               </a>
               <a href="https://www.linkedin.com/in/fc-anjos/" target="_blank">
