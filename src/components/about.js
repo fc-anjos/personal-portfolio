@@ -5,6 +5,7 @@ import {
   faFileDownload, faCube, faHashtag, faLightbulb, faHeart,
 } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/about.module.scss';
+import Resume from '../../downloads/Felipe_dos_Anjos.pdf';
 
 function SkillCard(props) {
   const listItems = props.ul_items.map(item => (
@@ -44,7 +45,7 @@ const AboutText = props => (
         My interests are multiple but never scattered: this stance supports learning how to learn and aids at dealing with challenges creatively.
       </p>
     </div>
-    <a className={styles.resumeLink} href="">
+    <a className={styles.resumeLink} href={Resume} download>
       Download my Resume
       <FontAwesomeIcon icon={faFileDownload} className={styles.icon} />
     </a>
