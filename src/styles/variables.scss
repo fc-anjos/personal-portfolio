@@ -10,6 +10,7 @@ $green: #22B07D;
 $yellow: #F19D2A;
 $red: $primary;
 
+$link-hover-color: desaturate(darken($primary, 10%), 10%);
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,

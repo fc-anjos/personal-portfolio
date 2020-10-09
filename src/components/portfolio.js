@@ -57,7 +57,7 @@ class Entry extends Component {
 
   render() {
     const {
-      imgLink, projectDescription, eventKey, projectTitle, projectSubTitle,
+      imgLink, projectDescription, eventKey, projectTitle, projectSubTitle, projectLink,
     } = this.props;
     const { open } = this.state;
     return (
@@ -73,6 +73,7 @@ class Entry extends Component {
           eventKey={eventKey}
           imgLink={imgLink}
           projectDescription={projectDescription}
+          projectLink={projectLink}
         />
       </div>
     );
@@ -81,8 +82,14 @@ class Entry extends Component {
 
 const EntryBody = props => {
   const {
-    imgLink, projectDescription, eventKey,
+    imgLink, projectDescription, eventKey, projectLink,
   } = props;
+
+  const description = projectDescription.map(paragraph => (
+    <p>
+      {paragraph}
+    </p>
+  ));
   return (
     <Accordion.Collapse eventKey={eventKey}>
       <div className={styles.entryBody}>
@@ -90,7 +97,8 @@ const EntryBody = props => {
           <img src={imgLink} className={styles.portfolioImage} alt="" />
         </div>
         <div className={styles.projectDescription}>
-          {projectDescription}
+          {description}
+          <a target="_blank" rel="noreferrer" className={styles.projectLink} href={`${projectLink}`}>Check it out on github</a>
         </div>
       </div>
     </Accordion.Collapse>
@@ -132,27 +140,33 @@ export default function Portfolio() {
         />
       </Fade>
       <Accordion className={styles.accordion}>
-        <Fade cascade duration={200} cascade damping={0.5} fraction={0.4} triggerOnce>
+        <Fade cascade duration={200} damping={0.5} fraction={0.4} triggerOnce>
           <Entry
             eventKey="0"
             p
             projectTitle="SwipEx"
-            projectSubTitle="An application to blabla"
-            projectDescription="SwipEx is the capstone project form Microverse's HTML-CSS module. Bootstrap with custom breakpoints is used extensively, re-arranging the content with its responsible break-points and changing margins and paddings accordingly. The project styling is done through SASS, organized in modularized units. "
+            projectSubTitle="A mobile application to find new acquaintances."
+            projectDescription={["Built as part of Microverse's full stack development program, this project is the implementation of a design by Vlad Ermakov, from Fireart Studio.", 'Bootstrap with custom breakpoints is used extensively, re-arranging the content with its responsible break-points and changing margins and paddings accordingly.The project styling is done through SASS, organized in modularized units.']}
             imgLink="https://raw.githubusercontent.com/fc-anjos/capstone-project-html-css/master/screenshot.PNG"
+            projectLink="https://github.com/fc-anjos/capstone-project-html-css"
           />
 
           <Entry
             eventKey="1"
             projectTitle="BusBot"
-            projectDescription="This Telegram bot connects to SPTrans API to estimate the arrival times for a given Bus Line at an specific Bus Stop in the city of São Paulo."
+            projectSubTitle="A telegram bot that will tell you the estimated arrival time for buses in São Paulo"
+            projectDescription={['How long will my bus take? Discover in Telegram sending a message to @bus-statuses-bot', 'This Telegram bot connects to SPTrans API to estimate the arrival times for a given Bus Line at an specific Bus Stop in the city of São Paulo.']}
             imgLink="https://raw.githubusercontent.com/fc-anjos/telegram-bus-bot/development/screenshot.gif"
+            projectLink="https://github.com/fc-anjos/telegram-bus-bot"
           />
 
           <Entry
             eventKey="2"
-            projectDescription="Stay in Touch"
+            projectSubTitle="A social media app built with Ruby on Rails."
+            projectDescription={['This project explores problems such as authentication, self-referential tables and scopes in a classic social network app.', 'Built in partnership with Julio Añoveros']}
             projectTitle="Stay in Touch"
+            imgLink="https://raw.githubusercontent.com/fc-anjos/ror-social-scaffold/development/docs/screenshot.png"
+            projectLink="https://github.com/fc-anjos/ror-social-scaffold"
           />
 
         </Fade>

@@ -66,11 +66,13 @@ $card-padding: 1em;
 }
 
 .projectDescription {
+  margin-left: 1em;
 }
 
 .entryBody {
   display: flex;
   justify-content: space-evenly;
+  padding: 1em;
 }
 
 .portfolioImage {
@@ -80,8 +82,14 @@ $card-padding: 1em;
 
 .projectDescription {
   width: 33%;
+  height: 100%;
 }
 
 .accordion {
   margin-top: 2em;
+}
+
+.projectLink {
+  font-size: 0.9em;
+  font-weight: bold;
 }
